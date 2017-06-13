@@ -2,7 +2,7 @@
 #include <limits.h>
 
 int LOOKUP(int *p, int i, int j, int n, int (*m)[n]){
-	if(m[i][j]<1000000)
+	if(m[i][j]<INT_MAX)
 		return m[i][j];
 	if(i==j)
 		m[i][j]=0;
@@ -20,7 +20,7 @@ int LOOKUP(int *p, int i, int j, int n, int (*m)[n]){
 void MCM(int *p, int n, int (*m)[n]){
 	for(int i=0;i<n;i++)
 		for(int j=i;j<n;j++)
-			m[i][j]=1000000;
+			m[i][j]=INT_MAX;
 	LOOKUP(p,0,n-1,n,m);
 }
 
